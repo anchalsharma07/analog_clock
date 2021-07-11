@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>analog clock</title>
+    <style>
+        body {
+            overflow: hidden;
+            background-image: url('https://images.unsplash.com/photo-1447757052757-5391690dca67?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8bmF0dXJlLHdhdGVyfHx8fHx8MTYyNjAwMjc0Mg&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600');
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+
+@media (max-width: 600px) { 
+    body{
+        overflow: hidden;
+           background-image: none;
+           background-color: lightcyan;
+          
+    }
+
+ }
+
+        #clockcontainer {
+            margin: auto;
+            height: 80vh;
+            width: 80vh;
+            border-radius: 50%;
+            position: relative;
+            background-image: url('clock.png');
+            background-repeat: no-repeat;
+            background-size: 100%;
+
+        }
+
+        #hour,
+        #minute,
+        #second {
+            position: absolute;
+            background: black;
+            border-radius: 15px;
+            transform-origin: bottom;
+        }
+
+        #hour {
+            position: absolute;
+            background-color: black;
+            top: 24%;
+            left: 48.5%;
+            width: 3%;
+            height: 25%;
+
+        }
+
+        #minute {
+            position: absolute;
+            background-color: black;
+            top: 21%;
+            left: 49.90%;
+            width: 2%;
+            height: 28%;
+
+        }
+
+        #second {
+            position: absolute;
+            background-color: black;
+            top: 15.5%;
+            left: 49.5%;
+            width: 1.25%;
+            height: 34%;
+        }
+
+        #circle {
+            position: absolute;
+            background-color: black;
+            border-radius: 50%;
+            top: 46%;
+            left: 46%;
+            width: 8%;
+            height: 8%;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="clockcontainer">
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+        <div id="circle"></div>
+    </div>
+    <script>
+        setInterval(() => {
+            d = new Date();
+            htime = d.getHours();
+            mtime = d.getMinutes();
+            stime = d.getSeconds();
+            hrotation = 30 * htime + mtime / 2;
+            mrotation = 6 * mtime;
+            srotation = 6 * stime;
+
+            hour.style.transform = `rotate(${hrotation}deg)`;
+            minute.style.transform = `rotate(${mrotation}deg)`;
+            second.style.transform = `rotate(${srotation}deg)`;
+        }, 1000);
+    </script>
+</body>
+
+</html>
